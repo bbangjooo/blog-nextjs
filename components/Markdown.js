@@ -1,6 +1,5 @@
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vsDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 export default function Markdown({markdown, remarkPlugins, components}) {
     return (
         <ReactMarkdown
@@ -13,7 +12,6 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                     <SyntaxHighlighter
                       language={match[1]}
                       PreTag="div"
-                      style={vsDark}
                       customStyle={{paddingLeft: "30px", borderRadius: "6px"}}
                       {...props}
                     >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
