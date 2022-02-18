@@ -8,8 +8,12 @@ export default function Layout({ children }) {
         <DefaultSeo
             additionalLinkTags={[
                 {
-                    rel: 'icon',
-                    href: "/favicon.ico"
+                    rel: "shortcut icon",
+                    href: "/images/favicon.ico"
+                },
+                {
+                    rel: "icon",
+                    href: "/images/favicon.ico"
                 }
             ]}
             additionalMetaTags={[
