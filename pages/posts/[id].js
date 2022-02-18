@@ -1,6 +1,5 @@
 import codeblocks  from "remark-code-blocks";
 import remarkGfm from "remark-gfm";
-import Fonts from "../../components/Fonts";
 import Markdown from "../../components/Markdown";
 import MetaWrapper from "../../components/PostCard/MetaWrapper";
 import client from "../../lib/prisma";
@@ -96,7 +95,6 @@ Feel free to contact for any questions or discussion
 export default function Post({ id, title, content, writer, tag, updatedAt }) {
     return (
         <div>
-            <Fonts/>
             <main>
                 <div className="title">{title}</div>
                 <MetaWrapper
