@@ -4,6 +4,8 @@ import Fonts from "../../components/Fonts";
 import Markdown from "../../components/Markdown";
 import MetaWrapper from "../../components/PostCard/MetaWrapper";
 import client from "../../lib/prisma";
+import styles from "../../components/PageCSS/posts.module.css"
+import Image from "next/image";
 export const getServerSideProps = async ({ params }) => {
     let post = await client.post.findUnique({
         where: {
@@ -23,12 +25,30 @@ const customComponents = {
 
         if (node.children[0].tagName === "img") {
             const image = node.children[0]
+            const metaWidth = image.properties.alt.match(/{([^}]+)x/)
+            const metaHeight = image.properties.alt.match(/x([^}]+)}/)
+            const width = metaWidth ? metaWidth[1] : "300px"
+            const height = metaHeight ? metaHeight[1] : "300px"
             return (
-                <img
-                    src={image.properties.src}
-                    style={{ display: "block", margin: "0 auto", maxWidth: "400px", maxHeight: "400px" }}
-                    alt={image.properties.alt}
-                />
+                <div className="wrap">
+                    <Image
+                        src={image.properties.src}
+                        alt={image.properties.alt}
+                        width={width}
+                        height={height}
+                        layout="fixed"
+                        placeholder="blur"
+                        blurDataURL={image.properties.src}
+                        className={styles.image}
+                    />
+                    <style jsx>{`
+                        .wrap {
+                            display: flex;
+                            justify-content: center;
+                            padding: 5px 0;
+                        }
+                    `}</style>
+                </div>
             );
         }
         return <p>{paragraph.children}</p>
@@ -104,6 +124,7 @@ export default function Post({ id, title, content, writer, tag, updatedAt }) {
                     margin: 60px auto;
                     width: 100%;
                     height: 100%;
+                    line-height: 2rem;
                     max-width: 700px;
                 }
                 .title {

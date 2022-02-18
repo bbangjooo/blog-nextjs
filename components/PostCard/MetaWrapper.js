@@ -15,7 +15,7 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
                         width="15px"
                         height="15px"
                         src="/calendar.svg"
-                        
+                        alt="calendar"
                         className={styles.icon}
                     />
                 </span>
@@ -27,6 +27,7 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
                         width="15px"
                         height="15px"
                         src="/user.svg"
+                        alt="user"
                         className={styles.icon}
                     />
                 </span>

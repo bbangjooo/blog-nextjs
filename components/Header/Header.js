@@ -73,6 +73,7 @@ export default function Header() {
                 <div className="col">
                     <Image 
                         src="/at2.svg"
+                        alt="at"
                         layout="fixed"
                         width="20px"
                         height="20px"

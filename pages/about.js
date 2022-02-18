@@ -2,7 +2,7 @@ import HeadComponent from "../components/HeadComponent";
 import remarkGfm from "remark-gfm";
 import Markdown from "../components/Markdown";
 import Image from "next/image";
-import styles from "../components/about.module.css";
+import styles from "../components/PageCSS/about.module.css";
 const markdown = `
 # \`$ whoami\`
 

@@ -1,11 +1,9 @@
-import Fonts from "./Fonts";
 import Footer from "./Footer";
 import Header from "./Header/Header";
 
 export default function Layout({ children }) {
     return (
         <div className="container">
-            <Fonts/>
             <Header/>
             <div>{children}</div>
             <Footer/>

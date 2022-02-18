@@ -1,7 +1,7 @@
 import client from "../../../lib/prisma";
 import { getSession } from "next-auth/react";
 
-export default async function (req, res) {
+export default async function handle(req, res) {
     const session = getSession({ req });
     if (session?.user?.email !== "airmancho@naver.com") {
         res.status(403).json({message: "Not Allowed"});

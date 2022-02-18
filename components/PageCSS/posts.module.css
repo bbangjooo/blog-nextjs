@@ -1,0 +1,6 @@
+.image {
+  display: block;
+  margin: 0 auto;
+  max-width: 400px;
+  max-height: 400px;
+}
