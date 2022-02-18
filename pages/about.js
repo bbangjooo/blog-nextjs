@@ -3,6 +3,8 @@ import remarkGfm from "remark-gfm";
 import Markdown from "../components/Markdown";
 import Image from "next/image";
 import styles from "../components/PageCSS/about.module.css";
+import { NextSeo } from "next-seo";
+import { useRouter } from "next/router";
 const markdown = `
 # \`$ whoami\`
 
@@ -66,28 +68,34 @@ const customComponents = {
 
 export default function About() {
     return (
-        <div>
-            <HeadComponent title={"About"} />
-            <main>
-                <Markdown
-                    markdown={markdown}
-                    remarkPlugins={[remarkGfm]}
-                    components={customComponents}
-                />
-            </main>
-            <style jsx>{`
-                main {
-                    font-family: 'Nanum Myeongjo', serif;
-                    display: flex;
-                    flex-direction: column;
-                    flex: 1;
-                    margin: 30px auto;
-                    width: 100%;
-                    height: 100%;
-                    max-width: 700px;
-                    padding-bottom: 30px;
-                }
-            `}</style>
-        </div>
+        <>
+            <NextSeo
+                title="About bbangjo"
+                description="about bbangjo"
+            />
+            <div>
+                <HeadComponent title={"About"} />
+                <main>
+                    <Markdown
+                        markdown={markdown}
+                        remarkPlugins={[remarkGfm]}
+                        components={customComponents}
+                    />
+                </main>
+                <style jsx>{`
+                    main {
+                        font-family: 'Nanum Myeongjo', serif;
+                        display: flex;
+                        flex-direction: column;
+                        flex: 1;
+                        margin: 30px auto;
+                        width: 100%;
+                        height: 100%;
+                        max-width: 700px;
+                        padding-bottom: 30px;
+                    }
+                `}</style>
+            </div>
+        </>
     );
 }

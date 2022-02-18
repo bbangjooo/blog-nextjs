@@ -5,12 +5,24 @@ import MetaWrapper from "../../components/PostCard/MetaWrapper";
 import client from "../../lib/prisma";
 import styles from "../../components/PageCSS/posts.module.css"
 import Image from "next/image";
+import { NextSeo } from "next-seo";
 export const getServerSideProps = async ({ params }) => {
     let post = await client.post.findUnique({
         where: {
             id: Number(params?.id) || -1
         }
     });
+    let author;
+    try {
+        author = await client.user.findUnique({
+            where: {
+            id: post.authorId
+            }
+        });
+        post.author = author.name;
+    } catch {
+      post.author = "조병근";
+    }
     post.createdAt = Math.floor(post.createdAt);
     post.updatedAt = Math.floor(post.updatedAt);
     return {
@@ -59,28 +71,6 @@ const customComponents = {
     )
 }
 
-const MainMarkdown = `
-# H1
-## H2
-### H3
-
-- l1
-- l2
-
-1. 1
-2. 2
-
-\`\`\`js
-
-console.log(1)
-
-\`\`\`
-
-![image](https://user-images.githubusercontent.com/51329156/152125397-9e5b915b-9394-41de-bdc1-0929ccf86b0a.png)
-
-
-`
-
 const FooterMarkdown = `
 #
 ---
@@ -92,51 +82,57 @@ Feel free to contact for any questions or discussion
 `;
 
 
-export default function Post({ id, title, content, writer, tag, updatedAt }) {
+export default function Post({ title, content, author, tag, updatedAt }) {
     return (
-        <div>
-            <main>
-                <div className="title">{title}</div>
-                <MetaWrapper
-                    tag={tag.split(',')}
-                    updatedAt={new Date(updatedAt).toISOString().substring(0,7)}
-                    writer={writer}
-                />
-                <Markdown
-                    markdown={"#\n" + content}
-                    remarkPlugins={[remarkGfm, codeblocks]}
-                    components={customComponents}
-                />
-                <Markdown
-                    markdown={FooterMarkdown}
-                    remarkPlugins={[remarkGfm]}
-                    components={customComponents}
-                />
-            </main>
-            <style jsx>{`
+        <>
+            <NextSeo
+                title={title}
+                description={`${title} - ${author} :: ${tag}`}
+            />
+            <div>
+                <main>
+                    <div className="title">{title}</div>
+                    <MetaWrapper
+                        tag={tag.split(',')}
+                        updatedAt={new Date(updatedAt).toISOString().substring(0,7)}
+                        author={author}
+                    />
+                    <Markdown
+                        markdown={"#\n" + content}
+                        remarkPlugins={[remarkGfm, codeblocks]}
+                        components={customComponents}
+                    />
+                    <Markdown
+                        markdown={FooterMarkdown}
+                        remarkPlugins={[remarkGfm]}
+                        components={customComponents}
+                    />
+                </main>
+                <style jsx>{`
 
-                main {
-                    display: flex;
-                    font-family: 'Nanum Myeongjo', serif;
-                    flex-direction: column;
-                    margin: 60px auto;
-                    width: 100%;
-                    height: 100%;
-                    line-height: 2rem;
-                    max-width: 700px;
-                }
-                .title {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-family: 'Ubuntu', sans-serif;
-                    font-weight: 600;
-                    word-break: break-all;
-                    font-size: 30px;
-                    padding-bottom: 30px;
-                }
-            
-            `}</style>
-        </div>
+                    main {
+                        display: flex;
+                        font-family: 'Nanum Myeongjo', serif;
+                        flex-direction: column;
+                        margin: 60px auto;
+                        width: 100%;
+                        height: 100%;
+                        line-height: 2rem;
+                        max-width: 700px;
+                    }
+                    .title {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-family: 'Ubuntu', sans-serif;
+                        font-weight: 600;
+                        word-break: break-all;
+                        font-size: 30px;
+                        padding-bottom: 30px;
+                    }
+                
+                `}</style>
+            </div>
+        </>
     );
 }

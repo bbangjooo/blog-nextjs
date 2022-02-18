@@ -1,8 +1,18 @@
+import { DefaultSeo } from "next-seo";
 import Footer from "./Footer";
 import Header from "./Header/Header";
 
 export default function Layout({ children }) {
     return (
+        <>
+        <DefaultSeo
+            additionalMetaTags={[
+                {
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=1"
+                }
+            ]}
+        />
         <div className="container">
             <Header/>
             <div>{children}</div>
@@ -19,5 +29,6 @@ export default function Layout({ children }) {
                 }
             `}</style>
         </div>
+        </>
     )
 }
