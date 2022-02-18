@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
-
+import Image from "next/image";
 export default function Header() {
     const router = useRouter();
     const isActive = (pathname) => (router.pathname === pathname);
@@ -50,7 +50,7 @@ export default function Header() {
     if (!session) {
         right = (
             <>
-                <Link href="/api/auth/signin">
+                <Link href="/api/auth/signin" passHref>
                     <button className="button">
                         <a data-active={isActive('/api/auth/signin')}>Log in</a>
                     </button>
@@ -71,7 +71,12 @@ export default function Header() {
         <nav>
             <div className="wrapper">
                 <div className="col">
-                    <img src="/at2.svg"/>
+                    <Image 
+                        src="/at2.svg"
+                        layout="fixed"
+                        width="20px"
+                        height="20px"
+                    />
                     <Link href="/">
                         <a data-active={isActive('/')}>bban9_jo</a>
                     </Link>
@@ -79,8 +84,6 @@ export default function Header() {
                         <a data-active={isActive('/about')}>About</a>
                     </Link>
                 </div>
-                
-                
                 <div className="col login">
                     {right}
                 </div>
@@ -103,13 +106,6 @@ export default function Header() {
                     padding: 0 30px;
                     flex-grow: 1;
                     justify-content: space-between;
-                }
-                img {
-                    max-width: 20px;
-                }
-                .bread {
-                    max-width: 100px;
-                    max-height: 50px;
                 }
                 a {
                     margin-left: 10px;

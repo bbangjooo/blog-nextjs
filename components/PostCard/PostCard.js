@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons"
 import MetaWrapper from "./MetaWrapper"
 import { useRouter } from "next/router"
-export default function ({id, title, content, updatedAt, author, tag}) {
+export default function PostCard({id, title, content, updatedAt, author, tag}) {
     const router = useRouter();
     const previewedContent = content.replace(/[#*`-]/g, '');
     const onClick = (id) => {

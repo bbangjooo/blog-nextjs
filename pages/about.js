@@ -2,6 +2,7 @@ import HeadComponent from "../components/HeadComponent";
 import remarkGfm from "remark-gfm";
 import Markdown from "../components/Markdown";
 import Image from "next/image";
+import styles from "../components/about.module.css";
 const markdown = `
 # \`$ whoami\`
 
@@ -46,11 +47,16 @@ const customComponents = {
         if (node.children[0].tagName === "img") {
             const image = node.children[0]
             return (
-                <img
-                    src={image.properties.src}
-                    style={{ width: "200px", height: "200px", borderRadius: "100px" }}
-                    alt={image.properties.alt}
-                />
+                    <Image
+                        src={image.properties.src}
+                        layout="fixed"
+                        width="200px"
+                        height="200px"
+                        placeholder="blur"
+                        blurDataURL={image.properties.src}
+                        className={styles.image}
+                        alt={image.properties.alt}
+                    />
             );
         }
         return <p>{paragraph.children}</p>
@@ -81,7 +87,6 @@ export default function About() {
                     max-width: 700px;
                     padding-bottom: 30px;
                 }
-            
             `}</style>
         </div>
     );

@@ -5,7 +5,6 @@ export default function Markdown({markdown, remarkPlugins, components}) {
     return (
         <ReactMarkdown
             st
-            children={markdown}
             remarkPlugins={remarkPlugins}
             components={{
                 code({node, inline, className, children, ...props}) {
@@ -18,7 +17,7 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                       style={vsDark}
                       customStyle={{paddingLeft: "30px", borderRadius: "6px"}}
                       {...props}
-                    />
+                    >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
                   ) : (
                     <code 
                       style={{
@@ -37,6 +36,6 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                 a: ({node, ...props}) => <a style={{ color: "rgb(61,132,246)" }} {...props}></a>,
                 ...components
               }}
-        />
+        >{markdown}</ReactMarkdown>
     )
 }

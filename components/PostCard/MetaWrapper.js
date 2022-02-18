@@ -1,3 +1,5 @@
+import Image from "next/image"
+import styles from "./Meta.module.css";
 export default function MetaWrapper({ tag, updatedAt, author }) {
     return (
         <div className="container">
@@ -8,19 +10,27 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
             </div>
             <div className="dateWriterWrapper">
                 <span className="dateWrapper">
-                    <img
+                    <Image
+                        layout="fixed"
+                        width="15px"
+                        height="15px"
                         src="/calendar.svg"
+                        
+                        className={styles.icon}
                     />
                 </span>
-                <span>{updatedAt}</span>
+                <span className="metaspan">{updatedAt}</span>
                 
                 <span className="writerWrapper">
-                    <img
+                    <Image
+                        layout="fixed"
+                        width="15px"
+                        height="15px"
                         src="/user.svg"
-                        style={{ paddingTop: "1px" }}
+                        className={styles.icon}
                     />
                 </span>
-                <span>{author}</span>
+                <span className="metaspan">{author}</span>
                 
             </div>
             <style jsx>{`
@@ -31,11 +41,7 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
                 span {
                     display: inline-block;
                     vertical-align: middle;
-                    padding-top: 5px;
-                }
-                img {
-                    max-width: 15px;
-                    margin: 0 4px;
+                    padding-top: 4px;
                 }
                 .container {
                     display: flex;
@@ -57,10 +63,15 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
                     justify-content: flex-end;
                 }
                 .dateWrapper {
-                    width: 20px;
-                    margin-right: 4px;
+                    padding-top: 5px;
+                    margin:0 2px;
                 }
                 .writerWrapper {
+                    padding-top: 5px;
+                    margin-left: 4px;
+                }
+                .metaspan {
+                    margin-left: 3px;
                 }
             `}</style>
         </div>
