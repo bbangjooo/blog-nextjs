@@ -119,6 +119,7 @@ export default function Post({ title, content, author, tag, updatedAt }) {
                         height: 100%;
                         line-height: 2rem;
                         max-width: 700px;
+                        font-size: 15px;
                     }
                     .title {
                         display: flex;

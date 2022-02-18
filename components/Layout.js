@@ -6,6 +6,12 @@ export default function Layout({ children }) {
     return (
         <>
         <DefaultSeo
+            additionalLinkTags={[
+                {
+                    rel: 'icon',
+                    href: "/favicon.ico"
+                }
+            ]}
             additionalMetaTags={[
                 {
                     name: "viewport",
