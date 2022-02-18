@@ -1,7 +1,10 @@
 html,
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 975px;
+  font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -9,6 +12,14 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input {
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+
+input:focus {
+  outline: none;
 }
 
 * {
