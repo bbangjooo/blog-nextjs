@@ -1,19 +1,53 @@
+import client from "../../lib/prisma"
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import styles from '../components/FormComponent/FormComponent.module.css';
-export default function Upload() {
-    const { register, getValues, formState, resetField, setError } = useForm({
+import styles from '../../components/FormComponent/FormComponent.module.css'
+import { useEffect } from "react";
+export const getServerSideProps = async({ params }) => {
+    let post = await client.post.findUnique({
+        where: {
+            id: Number(params?.id) || -1
+        }
+    });
+    let author;
+    try {
+        author = await client.user.findUnique({
+            where: {
+                id: post.authorId
+            }
+        });
+        post.author = author.name;
+    } catch {
+        post.author = '조병근';
+    }
+    post.createdAt = Math.floor(post.createdAt);
+    post.updatedAt = Math.floor(post.updatedAt);
+    
+    return {
+        props: post
+    }
+}
+
+export default function Update({ id, title, content, tag }) {
+    const { register, getValues, formState, resetField, setError, setValue } = useForm({
         mode: "onChange"
     });
+    useEffect(() => {
+        if (title && content && tag) {
+            setValue("title", title);
+            setValue("content", content);
+            setValue("tag", tag);
+        }
+    }, []);
     const router = useRouter();
     let submitError = null;
     const onSubmit = async (event) => {
         event.preventDefault();
-        const { title, content, tag, author } = getValues();
+        const { title, content, tag } = getValues();
         try {
-            const body = { title, content, tag, author };
-            await fetch('/api/post', {
-                method: 'POST',
+            const body = { id, title, content, tag };
+            await fetch(`/api/post/${id}`, {
+                method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)
             });

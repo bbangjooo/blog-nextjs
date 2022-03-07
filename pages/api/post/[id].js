@@ -14,7 +14,20 @@ export default async function handle(req, res) {
             }
         });
         res.json(post);
-    } else {
+    } else if (req.method === "PUT") {
+        const updatedPost = await client.post.update({
+            where: {
+                id: Number(postId)
+            },
+            data: {
+                title: req.query.title,
+                content: req.query.content,
+                tag: req.query.tag
+            }
+        });
+        res.json(updatedPost);
+    } 
+    else {
         throw new TypeError(
             `${req.method} is Not Allowed!`
         )

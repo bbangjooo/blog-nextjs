@@ -16,10 +16,10 @@ export default function Upload() {
             });
             router.push('/');
         } catch (error) {
-            submitError = (<span className={styles.span, styles.error}>{error}</span>);
+            submitError = (<span className={[styles.span, styles.error]}>{error}</span>);
         }
     }
-    let IdError = formState?.errors?.postId?.message !== undefined ? <span className={styles.span, styles.error}>{formState?.errors?.postId?.message}</span> : null;
+    let IdError = formState?.errors?.postId?.message !== undefined ? <span className={[styles.span, styles.error]}>{formState?.errors?.postId?.message}</span> : null;
     return (
         <main>
             <div className={styles.title}>Delete</div>
