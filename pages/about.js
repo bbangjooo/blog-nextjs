@@ -91,7 +91,7 @@ export default function About() {
                         margin: 100px auto;
                         width: 100%;
                         height: 100%;
-                        max-width: 700px;
+                        max-width: 750px;
                         padding-bottom: 30px;
                     }
                 `}</style>
