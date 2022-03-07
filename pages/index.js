@@ -3,7 +3,13 @@ import HeadComponent from "../components/HeadComponent";
 import PostCard from "../components/PostCard/PostCard";
 import client from "../lib/prisma";
 export const getStaticProps = async () => {
-  let feed = await client.post.findMany();
+  let feed = await client.post.findMany({
+    orderBy: [
+      {
+        updatedAt: 'desc'
+      }
+    ]
+  });
   await Promise.all(feed.map(async post => {
     let author;
     try {
@@ -62,6 +68,7 @@ export default function Home({ feed }) {
             width: 100%;
             gap: 5px;
             padding: 20px;
+            margin-top: 60px;
           }
         `}</style>
       </div>

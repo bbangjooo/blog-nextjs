@@ -22,7 +22,7 @@ export default function PostCard({id, title, content, updatedAt, author, tag}) {
                 />
             </div>
             <div className="body">
-                <div>{previewedContent.substr(0,62)}</div>
+                <div>{previewedContent.substr(0,62).concat(" ...")}</div>
                 <FontAwesomeIcon
                     icon={faAngleDoubleRight}
                     style={{ maxWidth: "15px" }}

@@ -36,6 +36,7 @@ export default function Layout({ children }) {
                 }
                 .container > div {
                     flex: 1;
+                    
                 }
             `}</style>
         </div>

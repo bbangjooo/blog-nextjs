@@ -91,6 +91,11 @@ export default function Header() {
             </div>
             <style jsx>{`
                 nav {
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    max-width: 975px;
+                    
                     display: flex;
                     align-items: center;
                     justify-content: center;

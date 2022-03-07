@@ -6,6 +6,7 @@ import client from "../../lib/prisma";
 import styles from "../../components/PageCSS/posts.module.css"
 import Image from "next/image";
 import { NextSeo } from "next-seo";
+import { useEffect } from "react";
 export const getServerSideProps = async ({ params }) => {
     let post = await client.post.findUnique({
         where: {
@@ -83,13 +84,27 @@ Feel free to contact for any questions or discussion
 
 
 export default function Post({ title, content, author, tag, updatedAt }) {
+    useEffect(() => {
+        const onscroll = () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height)  * 52;
+            if (document.getElementsByClassName('progress-bar')[0])
+                document.getElementsByClassName('progress-bar')[0].style.width = scrolled + "%";
+        };
+        window.addEventListener('scroll', onscroll);
+        return function cleanup() {
+            window.removeEventListener('scroll', onscroll);
+        }
+    }, []);
     return (
         <>
             <NextSeo
                 title={title}
                 description={`${title} - ${author} :: ${tag}`}
             />
-            <div>
+            <div className="wrapper">
+                <div className="progress-bar"></div>
                 <main>
                     <div className="title">{title}</div>
                     <MetaWrapper
@@ -109,17 +124,31 @@ export default function Post({ title, content, author, tag, updatedAt }) {
                     />
                 </main>
                 <style jsx>{`
-
+                    .wrapper {
+                        width: 975px;
+                        margin: 0;
+                        padding: 0;
+                    }
                     main {
                         display: flex;
                         font-family: 'Nanum Myeongjo', serif;
                         flex-direction: column;
-                        margin: 60px auto;
+                        margin: 100px auto;
                         width: 100%;
                         height: 100%;
                         line-height: 2rem;
-                        max-width: 700px;
+                        max-width: 750px;
                         font-size: 15px;
+                    }
+                    .progress-bar {
+                        position: fixed;
+                        top: 60px;
+                        max-width: 975px;
+                        height: 5px;
+                        margin: 0;
+                        background-color: #d6d6d6;
+                        border-radius: 4px;
+                        transition: all 0.1s linear;
                     }
                     .title {
                         display: flex;

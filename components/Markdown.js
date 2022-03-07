@@ -22,7 +22,8 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                         padding: "0.2em 0.4em",
                         fontSize: "85%",
                         borderRadius: "6px",
-                        color: "white"
+                        color: "white",
+                        fontFamily: "consolas"
                       }}  
                       className={className} 
                       {...props}>
