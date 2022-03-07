@@ -2,7 +2,7 @@ import client from "../../../lib/prisma";
 import { getSession } from "next-auth/react";
 
 export default async function handle(req, res) {
-    const session = getSession({ req });
+    const session = await getSession({ req });
     if (session?.user?.email !== "airmancho@naver.com") {
         return res.status(403).json({message: session?.user});
     }
