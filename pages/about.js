@@ -88,7 +88,7 @@ export default function About() {
                         display: flex;
                         flex-direction: column;
                         flex: 1;
-                        margin: 30px auto;
+                        margin: 100px auto;
                         width: 100%;
                         height: 100%;
                         max-width: 700px;
