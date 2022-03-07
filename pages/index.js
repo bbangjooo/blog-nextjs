@@ -2,7 +2,7 @@ import { NextSeo } from "next-seo";
 import HeadComponent from "../components/HeadComponent";
 import PostCard from "../components/PostCard/PostCard";
 import client from "../lib/prisma";
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   let feed = await client.post.findMany({
     orderBy: [
       {

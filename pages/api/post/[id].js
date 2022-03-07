@@ -22,7 +22,12 @@ export default async function handle(req, res) {
             data: {
                 title: req.query.title,
                 content: req.query.content,
-                tag: req.query.tag
+                tag: req.query.tag,
+                author: {
+                    connect: {
+                        email: session?.user?.email
+                    }
+                }
             }
         });
         return res.json(updatedPost);
