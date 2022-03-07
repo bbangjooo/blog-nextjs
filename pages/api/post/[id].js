@@ -15,14 +15,15 @@ export default async function handle(req, res) {
         });
         return res.json(post);
     } else if (req.method === "PUT") {
+        const { title, content, tag } = req.body;
         const updatedPost = await client.post.update({
             where: {
                 id: Number(postId)
             },
             data: {
-                title: req.query.title,
-                content: req.query.content,
-                tag: req.query.tag,
+                title,
+                content,
+                tag,
                 author: {
                     connect: {
                         email: session?.user?.email
