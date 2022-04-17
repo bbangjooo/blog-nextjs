@@ -43,7 +43,6 @@ export default function Header() {
     transform: translateY(-1px);
     }`;
     const { data: session, status } = useSession();
-    console.log(session);
     let right = null;
     if (status === "loading") {
         right = "Validate Sessions...";

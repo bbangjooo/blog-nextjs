@@ -4,7 +4,6 @@ import Markdown from "../components/Markdown";
 import Image from "next/image";
 import styles from "../components/PageCSS/about.module.css";
 import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
 const markdown = `
 # \`$ whoami\`
 
