@@ -39,17 +39,15 @@ const customComponents = {
             const image = node.children[0]
             const metaWidth = image.properties.alt.match(/{([^}]+)x/)
             const metaHeight = image.properties.alt.match(/x([^}]+)}/)
-            const width = metaWidth ? metaWidth[1] : "300px"
+            const width = metaWidth ? metaWidth[1] : "auto"
             const height = metaHeight ? metaHeight[1] : "300px"
             return (
                 <div className="wrap">
-                    <Image
+                    <img
                         src={image.properties.src}
                         alt={image.properties.alt}
-                        layout="responsive"
-                        width={width}
-                        height={height}
-                        placeholder="blur"
+                        width="auto"
+                        height="auto"
                         blurDataURL={image.properties.src}
                         className={styles.image}
                     />
