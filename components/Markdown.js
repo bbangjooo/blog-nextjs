@@ -1,6 +1,5 @@
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { style } from "react-syntax-highlighter/dist/esm/styles/prism/dracula";
 export default function Markdown({markdown, remarkPlugins, components}) {
     for (const props in style) {
       style[props]['fontFamily'] = "'Fira Code', " + style[props]['fontFamily'];
@@ -16,7 +15,6 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                     <SyntaxHighlighter
                       language={match[1]}
                       PreTag="div"
-                      style={}
                       customStyle={{paddingLeft: "30px", borderRadius: "6px"}}
                       {...props}
                     >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
