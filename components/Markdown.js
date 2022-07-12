@@ -41,6 +41,7 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                   )
                 },
                 a: ({node, ...props}) => <a style={{ color: "rgb(61,132,246)" }} {...props}></a>,
+                blockquote: ({node, children, ...props}) => <blockquote style={{borderLeft: "solid black", borderTopLeftRadius: "6px"}}>{children}</blockquote>,
                 ...components
               }}
         >{markdown}</ReactMarkdown>
