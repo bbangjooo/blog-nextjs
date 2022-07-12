@@ -102,6 +102,7 @@ export default function Header() {
                     height: 60px;
                     box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 30px -20px;
                     font-family: 'Bungee', cursive;
+                    z-index: 100;
                 }
                 a[data-active='true'] {
                     text-decoration: underline dashed;
