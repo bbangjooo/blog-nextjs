@@ -12,7 +12,7 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                     <SyntaxHighlighter
                       language={match[1]}
                       PreTag="div"
-                      customStyle={{paddingLeft: "30px", borderRadius: "6px"}}
+                      customStyle={{paddingLeft: "30px", borderRadius: "6px", fontFamily: "Fira Code"}}
                       {...props}
                     >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
                   ) : (
