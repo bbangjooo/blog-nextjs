@@ -4,9 +4,9 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
     return (
         <div className="container">
             <div className="tagWrapper">
-                {tag === [""] ? <span className="tag">No Tags</span> : tag.map((tag, idx) => (
-                    <span key={idx} className="tag">{'#' + tag}</span>
-                ))}
+                {tag === [""] ? <span className="tag">No Tags</span> : tag.map((tag, idx) => {
+                    <span key={idx} className="tag">{tag[0] === ' ' ? '#'+tag.substr(1) : '#'+tag}</span>
+                })}
             </div>
             <div className="dateWriterWrapper">
                 <span className="dateWrapper">
@@ -53,7 +53,7 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
                     font-size: 15px;
                 }
                 .tag {
-                    padding: 3px 4px;
+                    padding: 3px 0;
                     font-style: italic;
                     margin-right: 5px;
                 }
