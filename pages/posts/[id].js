@@ -138,7 +138,7 @@ export default function Post({ title, content, author, tag, updatedAt }) {
                         font-size: 1.15rem;
                     }
                     p {
-                        display:block;
+                        text-align: unset;
                         text-indent: 1rem;
                     }
                     .progress-bar {
