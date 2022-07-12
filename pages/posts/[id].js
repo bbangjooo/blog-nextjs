@@ -131,7 +131,7 @@ export default function Post({ title, content, author, tag, updatedAt }) {
                     }
                     main {
                         display: flex;
-                        font-family: 'Nanum Myeongjo', serif;
+                        font-family: 'NanumSquare', 'Nanum Myeongjo', serif;
                         flex-direction: column;
                         margin: 100px auto;
                         width: 100%;
