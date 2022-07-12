@@ -17,6 +17,7 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                     <SyntaxHighlighter
                       language={match[1]}
                       PreTag="div"
+                      style={style}
                       customStyle={{paddingLeft: "30px", borderRadius: "6px"}}
                       {...props}
                     >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
