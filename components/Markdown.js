@@ -1,9 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 export default function Markdown({markdown, remarkPlugins, components}) {
-    for (const props in style) {
-      style[props]['fontFamily'] = "'Fira Code', " + style[props]['fontFamily'];
-    }
     return (
         <ReactMarkdown
             st
