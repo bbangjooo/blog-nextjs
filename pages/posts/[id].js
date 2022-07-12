@@ -55,12 +55,9 @@ const customComponents = {
                     />
                     <style jsx>{`
                         .wrap {
-                            display: flex;
-                            align-content: stretch;
-                            align-items: stretch;
-                            justify-content: center;
+                            display: div;
                             padding: 5px 0;
-                            position: relative;
+                            margin: 0 auto;
                         }
                     `}</style>
                 </div>
