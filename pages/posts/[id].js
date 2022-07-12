@@ -46,9 +46,7 @@ const customComponents = {
                     <Image
                         src={image.properties.src}
                         alt={image.properties.alt}
-                        width={width}
-                        height={height}
-                        layout="fill"
+                        layout="responsive"
                         placeholder="blur"
                         blurDataURL={image.properties.src}
                         className={styles.image}
