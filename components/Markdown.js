@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { style } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { style } from 'react-syntax-highlighter/dist/esm/styles/prism/prism';
 export default function Markdown({markdown, remarkPlugins, components}) {
     console.log("hi");
     for (const props in style) {
