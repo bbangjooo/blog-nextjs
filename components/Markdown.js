@@ -5,6 +5,9 @@ export default function Markdown({markdown, remarkPlugins, components}) {
     for (const props in style) {
       console.log(props, style[props]);
       style[props]['fontFamily'] = "'Fira Code', " + style[props]['fontFamily'];
+      if (style[props]['background'] === "hsla(0, 0%, 100%, .5)") {
+        style[props]['background'] = '';
+      }
     }  
     return (
         <ReactMarkdown
