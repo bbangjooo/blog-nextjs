@@ -23,7 +23,8 @@ export default function Markdown({markdown, remarkPlugins, components}) {
                         fontSize: "85%",
                         borderRadius: "6px",
                         color: "white",
-                        fontFamily: "Fira Code"
+                        fontFamily: "Fira Code",
+                        wordBreak: "break-all"
                       }}  
                       className={className} 
                       {...props}>
