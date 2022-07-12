@@ -55,7 +55,6 @@ const customComponents = {
                     />
                     <style jsx>{`
                         .wrap {
-                            display: div;
                             padding: 5px 0;
                             margin: 0 auto;
                         }
