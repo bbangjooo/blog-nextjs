@@ -1,8 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { style } from 'react-syntax-highlighter/dist/esm/styles/prism/prism';
+import style from 'react-syntax-highlighter/dist/esm/styles/prism/prism';
 export default function Markdown({markdown, remarkPlugins, components}) {
-    console.log("hi");
     for (const props in style) {
       console.log(props, style[props]);
       style[props]['fontFamily'] = "'Fira Code', " + style[props]['fontFamily'];
