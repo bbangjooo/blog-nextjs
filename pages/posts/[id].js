@@ -133,9 +133,12 @@ export default function Post({ title, content, author, tag, updatedAt }) {
                         margin: 100px auto;
                         width: 100%;
                         height: 100%;
-                        line-height: 2rem;
+                        line-height: 1.8;
                         max-width: 750px;
-                        font-size: 16px;
+                        font-size: 1.15rem;
+                    }
+                    p {
+                        text-indent: 1rem;
                     }
                     .progress-bar {
                         position: fixed;
