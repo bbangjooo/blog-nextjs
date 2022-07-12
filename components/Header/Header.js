@@ -111,6 +111,7 @@ export default function Header() {
                     max-width: 975px;
                     padding: 0 30px;
                     flex-grow: 1;
+                    background-color: white;
                     justify-content: space-between;
                 }
                 a {
