@@ -79,7 +79,7 @@ export default function Header() {
                         height="20px"
                     />
                     <Link href="/">
-                        <a data-active={isActive('/')}>bban9_jeo</a>
+                        <a data-active={isActive('/')}>bban9_jo</a>
                     </Link>
                     <Link href="/about">
                         <a data-active={isActive('/about')}>About</a>
