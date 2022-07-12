@@ -39,8 +39,8 @@ const customComponents = {
             const image = node.children[0]
             const metaWidth = image.properties.alt.match(/{([^}]+)x/)
             const metaHeight = image.properties.alt.match(/x([^}]+)}/)
-            const width = metaWidth ? metaWidth[1] : "100%"
-            const height = metaHeight ? metaHeight[1] : "100%"
+            const width = metaWidth ? metaWidth[1] : "auto"
+            const height = metaHeight ? metaHeight[1] : "auto"
             return (
                 <div className="wrap">
                     <Image
