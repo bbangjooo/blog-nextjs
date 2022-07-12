@@ -137,7 +137,7 @@ export default function Post({ title, content, author, tag, updatedAt }) {
                         max-width: 750px;
                         font-size: 1.15rem;
                     }
-                    p {
+                    main p {
                         text-indent: 1rem;
                     }
                     .progress-bar {
