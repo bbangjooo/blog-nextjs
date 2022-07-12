@@ -53,7 +53,8 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
                     font-size: 15px;
                 }
                 .tag {
-                    padding: 4px 8px 3px 8px;
+                    padding: 3px 4px;
+                    font-style: italic;
                     margin-right: 5px;
                 }
                 .dateWriterWrapper {
