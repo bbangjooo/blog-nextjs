@@ -105,7 +105,8 @@ export default function Header() {
                     z-index: 100;
                 }
                 a[data-active='true'] {
-                    text-decoration-color: rgb(61,132,246);
+                    color: #4384F6;
+                    text-decoration: none;
                 }
                 .wrapper {
                     display: flex;
