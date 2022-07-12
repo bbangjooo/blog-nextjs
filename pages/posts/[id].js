@@ -48,7 +48,7 @@ const customComponents = {
                         alt={image.properties.alt}
                         width={width}
                         height={height}
-                        layout="fixed"
+                        layout="fill"
                         placeholder="blur"
                         blurDataURL={image.properties.src}
                         className={styles.image}
@@ -60,6 +60,7 @@ const customComponents = {
                             align-items: stretch;
                             justify-content: center;
                             padding: 5px 0;
+                            position: relative;
                         }
                     `}</style>
                 </div>
