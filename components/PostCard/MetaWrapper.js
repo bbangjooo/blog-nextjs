@@ -54,7 +54,7 @@ export default function MetaWrapper({ tag, updatedAt, author }) {
                 }
                 .tag {
                     padding: 3px 0;
-                    font-style: italic;
+                    color: #00376B;
                     margin-right: 5px;
                 }
                 .dateWriterWrapper {
