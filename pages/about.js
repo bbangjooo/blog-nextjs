@@ -83,7 +83,7 @@ export default function About() {
                 </main>
                 <style jsx>{`
                     main {
-                        font-family: 'Nanum Myeongjo', serif;
+                        font-family: 'NanumSquare', 'Nanum Myeongjo', serif;
                         display: flex;
                         flex-direction: column;
                         flex: 1;

@@ -6,7 +6,7 @@ export default async function handle(req, res) {
     if (session?.user?.email !== "airmancho@naver.com") {
         res.status(403).json({message: "Not Allowed"});
     }
-    const { title, content, tag, author } = req.body;
+    const { title, content, tag } = req.body;
     const result = await client.post.create({
         data: {
             title,

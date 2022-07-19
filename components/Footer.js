@@ -4,6 +4,7 @@ export default function Footer() {
             Copyright &copy; bbangjo
             <style jsx>{`
                 div {
+                    font-family: 'NanumSquare';
                     display: flex;
                     justify-content: center;
                     align-items: center;
